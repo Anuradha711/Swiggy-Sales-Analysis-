@@ -1,42 +1,130 @@
-# Swiggy Data Analysis Project (SQL)
+# 🍔 Swiggy Restaurant Analytics — Advanced SQL Case Study
 
-## 📌 Project Overview
-This project involves a comprehensive analysis of Swiggy's restaurant data across various Indian cities. Using **MySQL**, I explored dataset trends, restaurant performance, and consumer preferences. The project demonstrates the application of foundational SQL queries, complex subqueries, and advanced window functions to derive business insights.
+![SQL](https://img.shields.io/badge/SQL-MySQL-blue?style=flat-square&logo=mysql)
+![Level](https://img.shields.io/badge/Level-Advanced-orange?style=flat-square)
+![Focus](https://img.shields.io/badge/Focus-Business%20Insights-success?style=flat-square)
 
-## 📊 Key Insights Explored
-* **Market Reach:** Analyzed the number of unique cities and restaurant chains operating on the platform.
-* **Revenue Analysis:** Calculated revenue metrics (`cost * rating_count`) to identify top-performing restaurants and cities.
-* **Customer Behavior:** Filtered restaurants based on ratings and popularity to find high-performing hubs.
-* **Cuisine Trends:** Identified the most and least expensive cuisines and determined city-specific cuisine dominance (e.g., Biryani in specific regions).
+## 📌 Overview
 
-## 🛠️ Tech Stack
-* **Language:** SQL (Structured Query Language)
-* **Database:** MySQL
-* **Tools:** GitHub, Microsoft Excel (Data Preview)
+This project analyzes Swiggy’s restaurant ecosystem across India using advanced SQL to uncover **revenue drivers, market leaders, and competitive positioning**.
 
-## 📂 Project Structure
-* `restaurants.csv`: The primary dataset containing restaurant names, cities, ratings, cuisines, and costs.
-* `SubQueries in SQL.sql`: SQL script focused on data exploration, filtering, and aggregate subqueries.
-* `Windows Function in SQL.sql`: SQL script utilizing advanced analytical functions like `RANK()`, `DENSE_RANK()`, and `PARTITION BY`.
-
-## 🚀 Technical Highlights
-
-### 1. Foundational Queries & Subqueries
-* Identifying the **highest revenue-generating** restaurants in India.
-* Finding restaurants in specific cities (like Delhi or Abohar) with unique performance metrics.
-* Calculating the **average rating** and filtering "Best Rated" restaurants.
-
-### 2. Advanced Window Functions
-* **Ranking:** Ranked restaurants by cost and revenue both globally and within specific cities.
-* **Partitioning:** Used `PARTITION BY city` and `PARTITION BY cuisine` to find the Top 5 restaurants in every category.
-* **Row Numbering:** Assigned unique identifiers to records based on price hierarchy to analyze competition.
-
-## 📖 How to Run
-1. Clone this repository.
-2. Create a database named `Swiggy` in your SQL environment.
-3. Import the `restaurants.csv` file into a table named `restaurants`.
-4. Execute the `.sql` scripts to see the analysis results.
+It is designed as a **real-world analytics case study**, demonstrating how data analysts translate business questions into actionable insights using structured query logic.
 
 ---
-**Author:** [Anuradha Vishwakarma]  
-**Goal:** Data Analyst Portfolio Project
+
+## 🎯 Problem Statement
+
+Food delivery platforms operate across multiple cities, cuisines, and pricing tiers.  
+The key challenge is to identify:
+
+- Which restaurants and cities drive the most revenue  
+- How pricing impacts demand  
+- Which cuisines dominate premium vs mass markets  
+- Whether large chains outperform independent restaurants  
+
+---
+
+## 🗃️ Dataset
+
+- ~61K+ restaurant records  
+- Multi-city coverage across India  
+- Includes ratings, pricing, cuisine, and demand indicators  
+
+**Key Metric Used:**
+```
+Revenue = cost × rating_count
+```
+
+---
+
+## 🧠 Approach
+
+The analysis is divided into two layers:
+
+### 1. Exploratory + Business Analysis
+- Aggregations and filtering
+- Subqueries for dynamic comparisons
+- Revenue estimation and ranking
+
+### 2. Advanced Competitive Analysis
+- Window functions (`RANK`, `DENSE_RANK`, `ROW_NUMBER`)
+- Partitioning by city and cuisine
+- Market-relative comparisons instead of global averages
+
+---
+
+## 📊 Key Insights
+
+- Revenue is driven by **price × demand**, not ratings alone  
+- A small number of cities contribute disproportionately to total revenue  
+- Premium pricing works only when supported by strong demand  
+- Some independent restaurants outperform large chains  
+- Cuisine pricing varies significantly across markets  
+
+---
+
+## 🛠️ SQL Concepts Used
+
+- Subqueries (correlated + nested)
+- Window Functions
+- Aggregations (`SUM`, `AVG`, `COUNT`, `MAX`)
+- GROUP BY & HAVING
+- Derived metrics and dynamic filtering
+
+---
+
+## 📁 Project Structure
+
+```
+swiggy-sql-analysis/
+├── restaurants.csv
+├── SubQueries_in_SQL.sql
+├── Windows_Function_in_SQL.sql
+└── README.md
+```
+
+---
+
+## ⚙️ How to Run
+
+```sql
+CREATE DATABASE Swiggy;
+USE Swiggy;
+```
+
+```sql
+LOAD DATA INFILE 'path/to/restaurants.csv'
+INTO TABLE restaurants
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+```
+
+Run:
+```
+SubQueries_in_SQL.sql
+Windows_Function_in_SQL.sql
+```
+
+---
+
+## 🚀 What This Project Demonstrates
+
+- Strong SQL fundamentals + advanced analytics
+- Ability to connect data with business decisions
+- Structured thinking similar to real product/data teams
+- Clean, scalable query writing
+
+---
+
+## 👩‍💻 Author
+
+**Anuradha Vishwakarma**  
+Data Analyst | SQL | Python | Excel  
+
+---
+
+## ⭐ If you find this useful
+
+Star ⭐ the repo and feel free to fork or build on top of it.
